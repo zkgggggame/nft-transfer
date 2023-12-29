@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/nft-transfer/static/css/main.f855e6bc.css",
+    "main.js": "/nft-transfer/static/js/main.da5c412c.js",
+    "static/js/458.c27e1a6d.chunk.js": "/nft-transfer/static/js/458.c27e1a6d.chunk.js",
+    "static/js/858.159730e2.chunk.js": "/nft-transfer/static/js/858.159730e2.chunk.js",
+    "static/js/787.8c9cf7a8.chunk.js": "/nft-transfer/static/js/787.8c9cf7a8.chunk.js",
+    "index.html": "/nft-transfer/index.html",
+    "main.f855e6bc.css.map": "/nft-transfer/static/css/main.f855e6bc.css.map",
+    "main.da5c412c.js.map": "/nft-transfer/static/js/main.da5c412c.js.map",
+    "458.c27e1a6d.chunk.js.map": "/nft-transfer/static/js/458.c27e1a6d.chunk.js.map",
+    "858.159730e2.chunk.js.map": "/nft-transfer/static/js/858.159730e2.chunk.js.map",
+    "787.8c9cf7a8.chunk.js.map": "/nft-transfer/static/js/787.8c9cf7a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.da5c412c.js"
+  ]
+}
