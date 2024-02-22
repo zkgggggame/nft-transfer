@@ -1,6 +1,8 @@
+// eslint-disable-next-lin
 import { erc20ABI, erc721ABI, useAccount, useConfig, useConnect, useNetwork, useSwitchNetwork, useWalletClient } from 'wagmi';
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
+// import { privateKeyToAccount } from 'viem/accounts';
 import { getContract } from 'viem';
 import { getWalletClient } from '@wagmi/core';
 
@@ -8,6 +10,8 @@ const ABI_List = [
   { name: 'ERC721', abi: erc721ABI },
   { name: 'ERC20', abi: erc20ABI },
 ];
+
+const ABIIIIII = ['function DEFAULT_ADMIN_ROLE() view returns (bytes32)'];
 
 export const IndexPage = () => {
   const { address, isConnected } = useAccount();
@@ -24,11 +28,42 @@ export const IndexPage = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 20, padding: 20 }}>
       <div style={{ display: 'flex', gap: 4 }}>
+        <div>
+          ChainId: <input style={{ width: 100 }} placeholder="chainId" id="chainId" />
+          <button
+            onClick={() => {
+              const chainId = document.getElementById('chainId');
+              snet.switchNetwork(parseInt(chainId.value));
+            }}
+          >
+            set
+          </button>
+        </div>
         {confs.chains.map((chain) => (
           <button style={{ color: chain.id === net.chain?.id ? '#f09' : '#000' }} key={chain.id} onClick={() => snet.switchNetwork(chain.id)}>
             {chain.name}
           </button>
         ))}
+      </div>
+
+      <div>
+        calldata:
+        <input style={{ width: 100 }} placeholder="calldata" id="calldata" />
+        <button
+          onClick={async () => {
+            if (!wallet.data) return alert('!wallet');
+            // const account = '0xxxxx';
+            // const to = '0xxxxx';
+            // const rpccc = '';
+            // const acc = ethers.Wallet.createRandom(new ethers.JsonRpcProvider(rpccc));
+            // const rewardContract = new ethers.Contract(to, ABIIIIII, acc);
+            // const data = rewardContract.interface.encodeFunctionData('fun name', ['fun args']);
+            // console.log({ to, data });
+            wallet.data.account.signTransaction(JSON.parse(document.getElementById('calldata').value));
+          }}
+        >
+          call
+        </button>
       </div>
       <div>
         Tool:{' '}
