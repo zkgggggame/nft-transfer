@@ -11,7 +11,7 @@ const ABI_List = [
   { name: 'ERC20', abi: erc20ABI },
 ];
 
-const ABIIIIII = ['function DEFAULT_ADMIN_ROLE() view returns (bytes32)'];
+const ABIIIIII = erc20ABI; // ['function DEFAULT_ADMIN_ROLE() view returns (bytes32)'];
 
 export const IndexPage = () => {
   const { address, isConnected } = useAccount();
@@ -52,13 +52,12 @@ export const IndexPage = () => {
         <button
           onClick={async () => {
             if (!wallet.data) return alert('!wallet');
-            // const account = '0xxxxx';
-            // const to = '0xxxxx';
+            // const to = '0x000';
             // const rpccc = '';
             // const acc = ethers.Wallet.createRandom(new ethers.JsonRpcProvider(rpccc));
             // const rewardContract = new ethers.Contract(to, ABIIIIII, acc);
-            // const data = rewardContract.interface.encodeFunctionData('fun name', ['fun args']);
-            // console.log({ to, data });
+            // const data = rewardContract.interface.encodeFunctionData('transfer', ['', '']);
+            // console.log({ to, data, address: acc.address });
             wallet.data.account.signTransaction(JSON.parse(document.getElementById('calldata').value));
           }}
         >
