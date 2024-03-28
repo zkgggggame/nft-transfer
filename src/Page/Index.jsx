@@ -115,15 +115,19 @@ export const IndexPage = () => {
               chainId: wallet.data.chain.id,
             });
             const address = document.getElementById('to').value.trim();
-            if (!address || !ethers.isAddress(address)) throw new Error('not address');
+            if (!address || !ethers.isAddress(address)) alert('not address');
             const to = getContract({ address: address, abi: abi.abi, walletClient });
             const value = ethers.parseEther(document.getElementById('value').value.trim() || '0');
             const fun = document.getElementById('fun').value.trim();
             const argsVal = document.getElementById('args').value.trim();
             const toArgs = [{ value }];
             if (argsVal) toArgs.unshift(JSON.parse(argsVal));
-            const estimateGas = await to.estimateGas[fun](...toArgs);
-            const tx = await to.write[fun](...toArgs);
+            try {
+              const estimateGas = await to.estimateGas[fun](...toArgs);
+              const tx = await to.write[fun](...toArgs);
+            } catch (e) {
+              alert(String(e));
+            }
           }}
         >
           send
